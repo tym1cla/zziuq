@@ -1,0 +1,41 @@
+
+body {
+    background: url("../image/backgroundphoto.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    backface-visibility: hidden;
+
+}
+
+body > div > div > form > h3 {
+    margin-bottom: 3rem;
+}
+
+.form-login {
+    width: 100%;
+    max-width: 400px;
+    padding: 3rem;
+    margin: 100px auto;
+
+}
+
+
+.form-register {
+
+    width: 100%;
+    max-width: 400px;
+    padding: 15px;
+    margin: 14rem auto;
+}
+
+.form-group {
+    margin-bottom: 5px;
+}
+
+form a {
+    display: inline-block;
+    margin-top: 25px;
+    line-height: 10px;
+}
