@@ -1,13 +1,26 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
+    <link href="{% static 'login/css/menu.css' %}" rel="stylesheet"/>
 </head>
 <body>
-<h1> Witamy  z powrotem {{ request.session.user_name }}！</h1>
-<p>
-    <a href="/logout/">Wyloguj sie</a>
-</p>
+    <header>
+        <div class="main">
+            <ul>
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Play</a></li>
+                <li><a href="#">Info</a></li>
+                <li><a href="/logout/">Logout</a></li>
+
+            </ul>
+        </div>
+        <div class="title">
+            <h1>Hey {{ request.session.user_name }}!</h1>
+        </div>
+
+    </header>
 </body>
 </html>
