@@ -108,3 +108,8 @@ def info(request):
     if not request.session.get('is_login', None):
         return redirect('/login/')
     return render(request, 'login/info.html')
+
+def question(request):
+    if not request.session.get('is_login', None):
+        return redirect('/login/')
+    return render(request, 'login/question.html')
