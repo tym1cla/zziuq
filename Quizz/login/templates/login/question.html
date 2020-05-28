@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Categories</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="{% static 'login/css/question.css' %}" rel="stylesheet"/>
+    <script src="https://kit.fontawesome.com/bf28cd6aa8.js" crossorigin="anonymous"></script>
+</head>
+    <div class="row">
+        <div class="col-sm-1">
+            <a href="../play"><button type="button" class="btn btn-info back"><i class="fas fa-backward"></i>Back</button></a>
+        </div>
+        <div class="col-sm-11">
+            <h1>Pytanie:</h1>
+             <h2>twoje pytanie, {{ request.session.user_name }}</h2>
+        </div>
+    </div>
+    <div class="container-fluid">
+    </br>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                 <h1>odp 1</h1>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                <h1>odp 2</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+    </br>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                  <h1>odp 3</h1>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <h1>odp 4</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</body>
+</html>
