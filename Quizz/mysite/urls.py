@@ -28,4 +28,5 @@ urlpatterns = [
     path('logout/',views.logout),
     path('play/',views.play),
     path('info/', views.info),
+    path('question/', views.question),
 ]
