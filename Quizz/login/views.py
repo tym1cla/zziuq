@@ -98,3 +98,13 @@ def logout(request):
         return redirect("/login/")
     request.session.flush()
     return redirect("/login/")
+
+def play(request):
+    if not request.session.get('is_login', None):
+        return redirect('/login/')
+    return render(request, 'login/categories.html')
+
+def info(request):
+    if not request.session.get('is_login', None):
+        return redirect('/login/')
+    return render(request, 'login/info.html')

@@ -1,1 +1,3 @@
-Quizz App
+aby stworzyć w bazie tablice pytań :
+python3 manage.py makemigrations
+python3 manage.py migrate
