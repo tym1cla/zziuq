@@ -1,63 +1,48 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
-from . import models
-from . import forms
-import hashlib
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from django.core.cache import cache
+from .models import Profile
+from .forms import *
 
 
-# Create your views here.
-
-def hash_code(s, salt='mysite'):
-    h = hashlib.sha256()
-    s += salt
-    h.update(s.encode())
-    return h.hexdigest()
-
-
+@login_required
 def index(request):
-    if not request.session.get('is_login', None):
-        return redirect('/login/')
-    return render(request, 'login/index.html')
+    if 'logout' in request.GET:
+        logout(request)
+        cache.clear()
+        return redirect(login_user)
+
+    return render(request, 'index.html')
 
 
-def login(request):
-
-    if request.session.get('is_login', None):
-        return redirect('/index/')
-
+def login_user(request):
     if request.method == 'POST':
-        login_form = forms.UserForm(request.POST)
+        login_form = UserForm(request.POST)
         message = 'Sprawdź poprawność'
         if login_form.is_valid():
             username = login_form.cleaned_data.get('username')
             password = login_form.cleaned_data.get('password')
-
-            try:
-                user = models.User.objects.get(name=username)
-            except:
-                message = 'Użytkownik nie istnieje！'
-                return render(request, 'login/login.html', locals())
-
-            if user.password == hash_code(password):
-                request.session['is_login'] = True
-                request.session['user_id'] = user.id
-                request.session['user_name'] = user.name
-                return redirect('/index/')
+            # authenticate user
+            user = authenticate(username=username, password=password)
+            # handle user authentication
+            if user is not None and user.is_active and user.is_authenticated:
+                login(request, user)
+                return redirect(index)
             else:
-                message = 'Hasło jest niepoprawne'
-                return render(request, 'login/login.html', locals())
+                return redirect(login_user)
         else:
-            return render(request, 'login/login.html', locals())
-    login_form = forms.UserForm()
-    return render(request, 'login/login.html', locals())
+            return redirect(login_user)
+
+    login_form = UserForm()
+    return render(request, 'login.html', locals())
 
 
 def register(request):
-    if request.session.get('is_login', None):
-        return redirect('/index/')
-
     if request.method == 'POST':
-        register_form = forms.RegisterForm(request.POST)
+        register_form = RegisterForm(request.POST)
         message = "Sprawdź poprawność"
         if register_form.is_valid():
             username = register_form.cleaned_data.get('username')
@@ -65,46 +50,33 @@ def register(request):
             password2 = register_form.cleaned_data.get('password2')
             email = register_form.cleaned_data.get('email')
             sex = register_form.cleaned_data.get('sex')
+
             if password1 != password2:
                 message = "Hasła różnią się"
-                return render(request, 'login/register.html', locals())
+                return render(request, 'register.html', locals())
             else:
-                same_name_user = models.User.objects.filter(name=username)
+                same_name_user = User.objects.filter(username=username)
                 if same_name_user:
                     message = "Użytkownik o takiej nazwie już istnieje！"
-                    return render(request, 'login/register.html', locals())
+                    return render(request, 'register.html', locals())
 
-                same_email_user = models.User.objects.filter(email=email)
+                same_email_user = User.objects.filter(email=email)
                 if same_name_user:
                     message = "Podany mail jest już zarejestrowany！"
-                    return render(request, 'login/register.html', locals())
+                    return render(request, 'register.html', locals())
 
-                new_user = models.User()
-                new_user.name = username
-                new_user.password = hash_code(password1)
-                new_user.email = email
-                new_user.sex = sex
-                new_user.save()
+                # create user and expand user profile
+                new_user = User.objects.create_user(username=username, email=email, password=password1)
+                user_profile = Profile(user=new_user, sex=sex)
+                user_profile.save()
 
-                return redirect('/login/')
+                return redirect(login_user)
         else:
-            return render(request, 'login/register.html', locals())
-    register_form = forms.RegisterForm()
-    return render(request, 'login/register.html', locals())
+            return render(request, 'register.html', locals())
+    register_form = RegisterForm()
+    return render(request, 'register.html', locals())
 
 
-def logout(request):
-    if not request.session.get('is_login', None):
-        return redirect("/login/")
-    request.session.flush()
-    return redirect("/login/")
-
-def play(request):
-    if not request.session.get('is_login', None):
-        return redirect('/login/')
-    return render(request, 'login/categories.html')
-
+@login_required
 def info(request):
-    if not request.session.get('is_login', None):
-        return redirect('/login/')
-    return render(request, 'login/info.html')
+    return render(request, 'info.html')
