@@ -13,7 +13,7 @@ def categories(request):
 
 @login_required
 def quiz_geography(request):
-
+    title = 'Geography'
     # get user
     current_user = Profile.objects.get(user=request.user)
     # get user available questions
@@ -38,8 +38,9 @@ def quiz_geography(request):
             # collect score
             if int(answer) == question.correct_answer:
                 current_user.score += 1
-                current_user.geography.add(question)
-                current_user.save()
+
+            current_user.geography.add(question)
+            current_user.save()
 
         return render(request, 'quiz.html', locals())
     return render(request, 'quiz.html', locals())
@@ -47,7 +48,7 @@ def quiz_geography(request):
 
 @login_required
 def quiz_entertainment(request):
-
+    title = 'Entertainment'
     # get user
     current_user = Profile.objects.get(user=request.user)
     # get user available questions
@@ -71,8 +72,9 @@ def quiz_entertainment(request):
             # collect score
             if int(answer) == question.correct_answer:
                 current_user.score += 1
-                current_user.geography.add(question)
-                current_user.save()
+
+            current_user.entertainment.add(question)
+            current_user.save()
 
         return render(request, 'quiz.html', locals())
     return render(request, 'quiz.html', locals())
@@ -80,7 +82,7 @@ def quiz_entertainment(request):
 
 @login_required
 def quiz_history(request):
-
+    title = 'History'
     # get user
     current_user = Profile.objects.get(user=request.user)
     # get user available questions
@@ -104,8 +106,9 @@ def quiz_history(request):
             # collect score
             if int(answer) == question.correct_answer:
                 current_user.score += 1
-                current_user.geography.add(question)
-                current_user.save()
+
+            current_user.history.add(question)
+            current_user.save()
 
         return render(request, 'quiz.html', locals())
     return render(request, 'quiz.html', locals())
@@ -113,7 +116,7 @@ def quiz_history(request):
 
 @login_required
 def quiz_literature(request):
-
+    title = 'Literature'
     # get user
     current_user = Profile.objects.get(user=request.user)
     # get user available questions
@@ -137,8 +140,9 @@ def quiz_literature(request):
             # collect score
             if int(answer) == question.correct_answer:
                 current_user.score += 1
-                current_user.geography.add(question)
-                current_user.save()
+
+            current_user.literature.add(question)
+            current_user.save()
 
         return render(request, 'quiz.html', locals())
     return render(request, 'quiz.html', locals())
@@ -146,7 +150,7 @@ def quiz_literature(request):
 
 @login_required
 def quiz_science(request):
-
+    title = 'Science'
     # get user
     current_user = Profile.objects.get(user=request.user)
     # get user available questions
@@ -170,8 +174,9 @@ def quiz_science(request):
             # collect score
             if int(answer) == question.correct_answer:
                 current_user.score += 1
-                current_user.geography.add(question)
-                current_user.save()
+
+            current_user.science.add(question)
+            current_user.save()
 
         return render(request, 'quiz.html', locals())
     return render(request, 'quiz.html', locals())
@@ -179,7 +184,7 @@ def quiz_science(request):
 
 @login_required
 def quiz_sport(request):
-
+    title = 'Sport'
     # get user
     current_user = Profile.objects.get(user=request.user)
     # get user available questions
@@ -203,8 +208,9 @@ def quiz_sport(request):
             # collect score
             if int(answer) == question.correct_answer:
                 current_user.score += 1
-                current_user.geography.add(question)
-                current_user.save()
+
+            current_user.sport.add(question)
+            current_user.save()
 
         return render(request, 'quiz.html', locals())
     return render(request, 'quiz.html', locals())
