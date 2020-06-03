@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils.timezone import now
 from category.models import Geography, Entertainment, History, Literature, Science, Sport
+import operator
 
 gender = (
     ('mężczyzna', "♂"),
