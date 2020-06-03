@@ -14,8 +14,13 @@ def index(request):
         logout(request)
         cache.clear()
         return redirect(login_user)
+     #"user": Profile.objects.all(), "score": Profile.objects.all()}
+    user = Profile.objects.all().order_by('-score')
 
-    return render(request, 'index.html')
+    score = Profile.objects.all().order_by('-score')
+
+    context = {"user": user, "score": score}
+    return render(request, 'index.html', context)
 
 
 def login_user(request):

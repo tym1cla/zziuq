@@ -4,7 +4,34 @@
     font-family: Century Gothic;
 
 }
+body
+{
+    counter-reset: Serial;           /* Set the Serial counter to 0 */
+}
 
+table
+{
+
+    border-collapse: separate;
+}
+tr th{
+    font-size: 2rem;
+}
+tbody{
+    font-size: 1.5rem;
+}
+tr td:first-child:before
+{
+  counter-increment: Serial;      /* Increment the Serial counter */
+  content:  counter(Serial); /* Display the counter */
+}
+body > header > form > div > div > h1{
+
+    padding: 2rem 2rem;
+    margin: 2rem 2rem;
+    text-align: center;
+    font-size: 3rem;
+}
 header{
     background-image: url("../image/backgroundphoto.jpg");
     height: 100vh;
