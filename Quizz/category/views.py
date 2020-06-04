@@ -4,6 +4,7 @@ from .forms import QuestionForm
 from .models import *
 import random
 from login.models import Profile
+from django.contrib.admin.views.decorators import staff_member_required
 
 
 @login_required
@@ -216,7 +217,7 @@ def quiz_sport(request):
     return render(request, 'quiz.html', locals())
 
 
-@login_required
+@staff_member_required
 def questions(request):
     form = QuestionForm()
 
