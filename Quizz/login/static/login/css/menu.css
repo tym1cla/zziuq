@@ -37,13 +37,20 @@ body > header > form > div > div > h1{
     margin: 2rem 2rem;
     text-align: center;
     font-size: 5rem;
-    color: #009999;
+    color: black;
 }
-header{
-    background-image: url("../image/backgroundphoto.jpg");
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
+body{
+    background-image: url("../image/rank.jpg");
+    background-position: center top;
+    background-size: 100%;
+
+}
+#navbarNav > button {
+
+    font-size: 2rem;
+    position: absolute;
+    right: 2rem;
+
 }
 
 ul{

@@ -1,9 +1,9 @@
 body{
-    background: url("../image/backgroundphoto.jpg") no-repeat center center fixed;
+    background: url("../image/backgroundphoto.jpg") no-repeat fixed;
     height: 100vh;
 }
 h1{
-    color: white;
+    color: black;
     font-size: 70px;
     text-align:center;
     margin-top: 2rem;
@@ -19,7 +19,9 @@ h1{
     margin-left: 2rem;
     margin-right: 2rem;
 }
-
+body > div.d-flex.justify-content-center > div > div > div > div > h6 {
+    color: black;
+}
 
 img.resize {
   width:300px;

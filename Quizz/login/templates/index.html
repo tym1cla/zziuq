@@ -35,12 +35,14 @@
                         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/info/">Infos</a>
+                        <a class="nav-link" href="/info/">Info</a>
 
                     </li>
+                     {% if not request.user.is_superuser %}
                     <li class="nav-item">
                         <a class="nav-link" href="/categories/">Play</a>
                     </li>
+                     {% endif %}
                       {% if request.user.is_superuser %}
                     <li>
                           <a class="nav-link " href="/questions/">Add questions</a>
