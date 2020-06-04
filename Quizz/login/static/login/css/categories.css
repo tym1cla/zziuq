@@ -6,6 +6,7 @@ h1{
     color: white;
     font-size: 70px;
     text-align:center;
+    margin-top: 2rem;
 }
 .container-fluid{
     width: 100%;
@@ -14,11 +15,16 @@ h1{
     margin-bottom: 20px;
 }
 .card{
-    background-color: lightgray;
+    background-color: white;
+    margin-left: 2rem;
+    margin-right: 2rem;
 }
+
+
 img.resize {
   width:300px;
   height:300px;
+    padding: 1rem 1rem;
 }
 .center {
   display: block;
@@ -31,4 +37,7 @@ img.resize {
     padding: 20px;
     margin-top: 10px;
     margin-left: 20px;
+}
+.btn{
+    align-items: center;
 }

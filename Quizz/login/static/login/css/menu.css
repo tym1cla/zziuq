@@ -4,21 +4,27 @@
     font-family: Century Gothic;
 
 }
+body > header > form > nav {
+    font-size: 2rem;
+    text-align: center;
+}
+
 body
 {
     counter-reset: Serial;           /* Set the Serial counter to 0 */
 }
 
-table
-{
+table {
 
     border-collapse: separate;
 }
 tr th{
     font-size: 2rem;
+
 }
 tbody{
-    font-size: 1.5rem;
+    font-size: 1.7rem;
+      color: #009999;
 }
 tr td:first-child:before
 {
@@ -30,7 +36,8 @@ body > header > form > div > div > h1{
     padding: 2rem 2rem;
     margin: 2rem 2rem;
     text-align: center;
-    font-size: 3rem;
+    font-size: 5rem;
+    color: #009999;
 }
 header{
     background-image: url("../image/backgroundphoto.jpg");
@@ -43,6 +50,9 @@ ul{
     float: right;
     list-style-type: none;
     margin-top:25px
+}
+h2 {
+    font-size: 3rem !important;
 }
 
 ul li{
@@ -81,7 +91,7 @@ ul li.active a{
 }
 
 .title h1{
-    color: black;
+    color: #009999;
     font-size: 70px;
 }
 .table-background{
