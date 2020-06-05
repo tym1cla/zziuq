@@ -4,18 +4,62 @@
     font-family: Century Gothic;
 
 }
+body > header > form > nav {
+    font-size: 2rem;
+    text-align: center;
+}
 
-header{
-    background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url("../image/quiz.jpg");
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
+body
+{
+    counter-reset: Serial;           /* Set the Serial counter to 0 */
+}
+
+table {
+
+    border-collapse: separate;
+}
+tr th{
+    font-size: 2rem;
+
+}
+tbody{
+    font-size: 1.7rem;
+      color: #009999;
+}
+tr td:first-child:before
+{
+  counter-increment: Serial;      /* Increment the Serial counter */
+  content:  counter(Serial); /* Display the counter */
+}
+body > header > form > div > div > h1{
+
+    padding: 2rem 2rem;
+    margin: 2rem 2rem;
+    text-align: center;
+    font-size: 5rem;
+    color: black;
+}
+body{
+    background-image: url("../image/rank.jpg");
+    background-position: center top;
+    background-size: 100%;
+
+}
+#navbarNav > button {
+
+    font-size: 2rem;
+    position: absolute;
+    right: 2rem;
+
 }
 
 ul{
     float: right;
     list-style-type: none;
     margin-top:25px
+}
+h2 {
+    font-size: 3rem !important;
 }
 
 ul li{
@@ -54,7 +98,30 @@ ul li.active a{
 }
 
 .title h1{
-    color: black;
+    color: #009999;
     font-size: 70px;
+}
+.table-background{
+    background-color: gray;
+    opacity: 0.8;
+}
 
+.bottomdiv {
+    position:relative;
+    bottom:0;
+    height:50%;
+    width:100%;
+    padding-top: 5%;
+}
+.op{
+    opacity: 0.7;
+}
+.gold{
+    color: gold;
+}
+.silver{
+    color: silver;
+}
+.brown{
+    color: brown;
 }

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+{% load static %}
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+    <link href="{% static 'login/css/categories.css' %}" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script src="https://kit.fontawesome.com/bf28cd6aa8.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<!-- <a href="../index"><button type="button" class="btn btn-info back"><i class="fas fa-backward"></i></button></a> -->
+<div class="row">
+    <div class="col-sm-1">
+        <a href="../index">
+            <button type="button" class="btn btn-info back"><i class="fas fa-backward"></i>Back</button>
+        </a>
+    </div>
+</div>
+<div class="d-flex justify-content-center">
+
+    <div class="container-fluid">
+        <form method="post" action=".">{% csrf_token %}
+            <div class="form-group row" align="center">
+                <label class="col-form-label col-sm-4">Kategoria</label>
+                <div class="col-sm-5">
+                    {{ form.category }}
+                </div>
+            </div>
+            <div class="form-group row" align="center">
+                <label class="col-form-label col-sm-4">Pytanie</label>
+                <div class="col-sm-5">
+                    {{ form.question }}
+                </div>
+            </div>
+
+            <div class="form-group row" align="center">
+                <label class="col-form-label col-sm-4">Odpowiedź 1</label>
+                <div class="col-sm-5">
+                    {{ form.answer_1}}
+                </div>
+            </div>
+            <div class="form-group row" align="center">
+                <label class="col-form-label col-sm-4">Odpowiedź 2</label>
+                <div class="col-sm-5">
+                    {{ form.answer_2}}
+                </div>
+            </div>
+            <div class="form-group row" align="center">
+                <label class="col-form-label col-sm-4">Odpowiedź 3</label>
+                <div class="col-sm-5">
+                    {{ form.answer_3}}
+                </div>
+            </div>
+            <div class="form-group row " align="center">
+                <label class="col-form-label col-sm-4">Odpowiedź 4</label>
+                <div class="col-sm-5">
+                    {{ form.answer_4}}
+                </div>
+            </div>
+            <div class="form-group row" align="center">
+                <label class="col-form-label col-sm-4">Poprawna odpowiedź</label>
+                <div class="col-sm-5">
+                    {{ form.correct_answer }}
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="offset-sm-5 py-2 submit">
+                    <button type="submit" class="btn btn-primary">Zatwierdź</button>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="offset-sm-4 pt-5">
+                    {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show">
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+</body>
+</html>

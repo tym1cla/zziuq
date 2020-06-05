@@ -1,27 +1,39 @@
 body {
-    background: url("../image/backgroundphoto.jpg") no-repeat center center fixed;
+    background: url("../image/back.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-   backface-visibility: hidden;
+    backface-visibility: hidden;
 
 }
 
 body > div > div > form > h3 {
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
+}
+
+header {
+    font-family: Saab, "sans-serif";
+    font-size: 100px;
+    text-align: center;
+    margin-top: 10rem;
+    color: #498011;
+
+}
+header h1 {
+    font-size: 90px;
 }
 
 .form-login {
     width: 100%;
     max-width: 400px;
-    padding: 3rem;
-    margin: 100px auto;
+    padding: 1rem;
+    margin: 7px auto;
 
 }
 
 .form-login {
-    margin-top: 14rem;
+    margin-top: 4rem;
     font-size: 1rem;
     color: black;
 }
