@@ -44,7 +44,7 @@
                 </div>
             </div>
             <form method="post" action=".">{% csrf_token %}
-
+            <input name="id" value="{{question.id}}" hidden>
                 <br>
                 <style>
                     .guzik {
