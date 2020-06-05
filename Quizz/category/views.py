@@ -11,6 +11,10 @@ from django.contrib.admin.views.decorators import staff_member_required
 def categories(request):
     return render(request, 'categories.html')
 
+@login_required
+def end(request):
+    return render(request, 'end.html')
+
 
 @login_required
 def quiz_geography(request):
@@ -31,6 +35,7 @@ def quiz_geography(request):
             question = questions_list[index]
         else:
             question = None
+            return render(request, 'end.html')
 
         return render(request, 'quiz.html', locals())
 
@@ -70,6 +75,7 @@ def quiz_entertainment(request):
             question = questions_list[index]
         else:
             question = None
+            return render(request, 'end.html')
 
         return render(request, 'quiz.html', locals())
 
@@ -109,6 +115,7 @@ def quiz_history(request):
             question = questions_list[index]
         else:
             question = None
+            return render(request, 'end.html')
 
         return render(request, 'quiz.html', locals())
 
@@ -148,6 +155,7 @@ def quiz_literature(request):
             question = questions_list[index]
         else:
             question = None
+            return render(request, 'end.html')
 
         return render(request, 'quiz.html', locals())
 
@@ -187,6 +195,7 @@ def quiz_science(request):
             question = questions_list[index]
         else:
             question = None
+            return render(request, 'end.html')
 
         return render(request, 'quiz.html', locals())
 
@@ -226,6 +235,7 @@ def quiz_sport(request):
             question = questions_list[index]
         else:
             question = None
+            return render(request, 'end.html')
 
         return render(request, 'quiz.html', locals())
 
