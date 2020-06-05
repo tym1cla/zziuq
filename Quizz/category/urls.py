@@ -4,6 +4,7 @@ from .views import*
 urlpatterns = [
     path('categories/', categories),
     path('questions/', questions),
+     path('end/', end),
     path('quiz/geography/', quiz_geography),
     path('quiz/entertainment/', quiz_entertainment),
     path('quiz/history/', quiz_history),
