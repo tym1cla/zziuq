@@ -27,9 +27,10 @@
     <div class="container-fluid">
         <form method="post" action=".">{% csrf_token %}
             <div class="form-group row" align="center">
-                <label class="col-form-label col-sm-4">Kategoria</label>
-                <div class="col-sm-5">
-                    {{ form.category }}
+                <label class="col-form-label col-sm-4">
+                    Kategoria</label>
+                <div class="col-sm-5">   <button type="button" class=" btn btn-primary  btn-rounded waves-effect" >    {{ form.category }}</button>
+
                 </div>
             </div>
             <div class="form-group row" align="center">
@@ -66,7 +67,8 @@
             <div class="form-group row" align="center">
                 <label class="col-form-label col-sm-4">Poprawna odpowiedź</label>
                 <div class="col-sm-5">
-                    {{ form.correct_answer }}
+                    <button type="button" class=" btn btn-primary  btn-rounded waves-effect" >  {{ form.correct_answer }}</button>
+
                 </div>
             </div>
 

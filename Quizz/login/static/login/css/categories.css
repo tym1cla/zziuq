@@ -1,45 +1,75 @@
-body{
-    background: url("../image/backgroundphoto.jpg") no-repeat fixed;
-    height: 100vh;
+body {
+    background: url("../image/categ.jpg") fixed;
+    background-position: center top;
+    background-size: 100%;
 }
-h1{
+
+h1 {
     color: black;
     font-size: 70px;
-    text-align:center;
+    text-align: center;
     margin-top: 2rem;
 }
-.container-fluid{
+
+.container-fluid {
     width: 100%;
-    margin: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 20px auto;
 }
-.card{
+#id_correct_answer {
+    background-color: transparent;
+}
+#id_category{
+    background-color: transparent;
+}
+.card {
     background-color: white;
     margin-left: 2rem;
     margin-right: 2rem;
 }
+#id_question,#id_answer_1, #id_answer_2, #id_answer_3, #id_answer_4 {
+    border-radius: 3rem;
+    padding: 1rem;
+}
+
+
 body > div.d-flex.justify-content-center > div > div > div > div > h6 {
     color: black;
 }
-
+body > div.d-flex.justify-content-center > div > form{
+    font-size: 1rem;
+    position: relative;
+    top: 10%;
+    left: 8%;
+}
+body > div.d-flex.justify-content-center > div > form > div > label {
+    font-size: 1.3rem;
+}
+body > div.d-flex.justify-content-center > div > form > div:nth-child(9) > div > button {
+    font-size: 2rem !important;
+    position: absolute;
+    left: 30%;
+    margin: 1rem 1rem;
+}
 img.resize {
-  width:300px;
-  height:300px;
+    width: 300px;
+    height: 300px;
     padding: 1rem 1rem;
 }
+
 .center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
     padding: 7px;
 }
-.back{
+
+.back {
     padding: 20px;
     margin-top: 10px;
     margin-left: 20px;
 }
-.btn{
+
+.btn {
     align-items: center;
 }
